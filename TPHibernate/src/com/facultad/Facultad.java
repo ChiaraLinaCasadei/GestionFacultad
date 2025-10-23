@@ -12,6 +12,24 @@ public class Facultad {
         this.ciudad = ciudad;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Ciudad getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(Ciudad ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "Facultad{" + "nombre=" + nombre + ", ciudad=" + ciudad + '}';

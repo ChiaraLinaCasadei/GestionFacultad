@@ -16,6 +16,32 @@ public class Carrera {
         this.materias = materias;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Facultad getFacultad() {
+        return facultad;
+    }
+
+    public void setFacultad(Facultad facultad) {
+        this.facultad = facultad;
+    }
+
+    public ArrayList<Materia> getMaterias() {
+        return materias;
+    }
+
+    public void setMaterias(ArrayList<Materia> materias) {
+        this.materias = materias;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Carrera{" + "nombre=" + nombre + ", facultad=" + facultad + ", materias=" + materias + '}';
