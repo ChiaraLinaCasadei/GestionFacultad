@@ -1,5 +1,6 @@
 
 package com.facultad;
+import javax.persistence.*;
 
 public class Ciudad {
     

@@ -1,6 +1,7 @@
 package com.facultad;
 
 import java.util.ArrayList;
+import javax.persistence.*;
 
 public class Materia {
     private String nombre;

@@ -15,12 +15,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
+import javax.persistence.*;
 
 public class TPHibernate {
     
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        hibernateExecute();
         int opcion = -1;
 
         do {
@@ -232,6 +233,12 @@ public class TPHibernate {
                     break;
             }
         } while (opcion != 0);
+    }
+
+    private static void hibernateExecute() {
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+        Session session = sf.openSession();
+        Transaction trx = session.beginTransaction();
     }
 
 }

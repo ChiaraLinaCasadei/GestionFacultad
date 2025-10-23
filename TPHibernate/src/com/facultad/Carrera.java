@@ -1,6 +1,7 @@
 package com.facultad;
 
 import java.util.ArrayList;
+import javax.persistence.*;
 
 public class Carrera {
     private String nombre;

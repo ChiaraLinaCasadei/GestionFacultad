@@ -1,6 +1,7 @@
 package com.facultad;
 
 import java.time.LocalDate;
+import javax.persistence.*;
 
 public class Persona {
     private String apellido;

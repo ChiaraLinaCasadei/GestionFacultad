@@ -1,5 +1,7 @@
 package com.facultad;
 
+import javax.persistence.*;
+
 public class Facultad {
     private String nombre;
     private Ciudad ciudad;

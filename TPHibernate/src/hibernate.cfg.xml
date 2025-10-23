@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <!--
 DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
 
@@ -38,24 +39,21 @@ made subject to such option by the copyright holder.
 
 Contributor(s):
 -->
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-<session-factory>
-<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/gestionfacu?createDatabaseIfNotExist=true</property>
-<property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password">root</property>
-<property name="hibernate.hbm2ddl.auto">create</property>
-<property name="hibernate.show_sql">true</property>
-<mapping package="com.facultad" resource="com.facultad/Alumno.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Carrera.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Ciudad.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Facultad.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Materia.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Persona.hbm.xml"/>
-<mapping package="com.facultad" resource="com.facultad/Profesor.hbm.xml"/>
-</session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/gestionfacultad?createDatabaseIfNotExist=true</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">pass</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+    <property name="hibernate.show_sql">true</property>
+    <mapping class="com.facultad.Alumno"/>
+    <mapping class="com.facultad.Carrera"/>
+    <mapping class="com.facultad.Ciudad"/>
+    <mapping class="com.facultad.Facultad"/>
+    <mapping class="com.facultad.Materia"/>
+    <mapping class="com.facultad.Persona"/>
+    <mapping class="com.facultad.Profesor"/>
+  </session-factory>
 </hibernate-configuration>
