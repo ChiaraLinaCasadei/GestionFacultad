@@ -1,27 +1,18 @@
-
 package tphibernate;
 
+import static Operations.Create.Ciudad;
 import java.util.Scanner;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import javax.persistence.*;
 
 public class TPHibernate {
-    
+
     public static void main(String[] args) {
+
+        SessionFactory sf = new Configuration().configure().buildSessionFactory();
+
         Scanner scanner = new Scanner(System.in);
-        hibernateExecute();
+
         int opcion = -1;
 
         do {
@@ -48,13 +39,13 @@ public class TPHibernate {
                     menuMaterias(scanner);
                     break;
                 case 4:
-                    menuGenerico(scanner, "Ciudad");
+                    menuGenerico(scanner, "Ciudad", sf);
                     break;
                 case 5:
-                    menuGenerico(scanner, "Carrera");
+                    menuGenerico(scanner, "Carrera", sf);
                     break;
                 case 6:
-                    menuGenerico(scanner, "Facultad");
+                    menuGenerico(scanner, "Facultad", sf);
                     break;
                 case 0:
                     System.out.println("Saliendo...");
@@ -64,6 +55,8 @@ public class TPHibernate {
                     break;
             }
         } while (opcion != 0);
+
+        sf.close();
     }
 
     private static int validarInput(Scanner scanner) {
@@ -107,9 +100,9 @@ public class TPHibernate {
                 case 5:
                     System.out.println("Listar alumnos por apellido...");
                     break;
-                case 0 :
-                    {}
-                    break;
+                case 0: {
+                }
+                break;
                 default:
                     System.out.println("Opción inválida");
                     break;
@@ -147,9 +140,9 @@ public class TPHibernate {
                 case 5:
                     System.out.println("Listar profesores por antigüedad...");
                     break;
-                case 0:
-                    {}
-                    break;
+                case 0: {
+                }
+                break;
                 default:
                     System.out.println("Opción inválida");
                     break;
@@ -184,14 +177,14 @@ public class TPHibernate {
                 case 4:
                     System.out.println("Listar todas las materias...");
                     break;
-                case 5:{
+                case 5: {
                     System.out.print("Ingrese nivel: ");
                     int nivel = scanner.nextInt();
                     System.out.println("Listar materias del nivel " + nivel + "...");
                 }
-                case 0:
-                      {}
-                      break;
+                case 0: {
+                }
+                break;
                 default:
                     System.out.println("Opción inválida");
                     break;
@@ -199,7 +192,7 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    private static void menuGenerico(Scanner scanner, String entidad) {
+    private static void menuGenerico(Scanner scanner, String entidad, SessionFactory sf) {
         int opcion;
         do {
             System.out.println("\n--- MENÚ " + entidad.toUpperCase() + " ---");
@@ -214,7 +207,7 @@ public class TPHibernate {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Crear " + entidad + "...");
+                    crearEntidad(scanner, entidad, sf);
                     break;
                 case 2:
                     System.out.println("Actualizar " + entidad + "...");
@@ -225,9 +218,9 @@ public class TPHibernate {
                 case 4:
                     System.out.println("Listar todas las " + entidad + "s...");
                     break;
-                case 0:
-                    {}
-                    break;
+                case 0: {
+                }
+                break;
                 default:
                     System.out.println("Opción inválida");
                     break;
@@ -235,10 +228,13 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    private static void hibernateExecute() {
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        Transaction trx = session.beginTransaction();
+    public static void crearEntidad (Scanner scanner, String entidad, SessionFactory sf){
+        switch (entidad){
+            case "Ciudad":
+                Ciudad(scanner, sf);
+                break;
+            
+        }
     }
 
 }

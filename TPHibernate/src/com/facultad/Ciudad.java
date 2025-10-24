@@ -1,12 +1,22 @@
 
 package com.facultad;
-import javax.persistence.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 public class Ciudad {
-    
+    private Integer id;
     private String nombre;
 
     public Ciudad() {
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
     
     public Ciudad(String nombre) {
@@ -20,9 +30,27 @@ public class Ciudad {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
+
+    public Ciudad(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
     @Override
     public String toString() {
-        return "Ciudad{" + "nombre=" + nombre + '}';
+        return "Ciudad{" + "id=" + id + ", nombre=" + nombre + '}';
+    }
+    
+    
+    public void Create (SessionFactory sf){
+        Session session = sf.openSession();
+        Transaction trx = session.beginTransaction();
+        
+        Ciudad ciudad = new Ciudad (1, "Santa Fe");
+        
+        session.save(ciudad);
+        
+        trx.commit();            
+        session.close();
     }
 }
