@@ -45,7 +45,7 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/gestionfacultad?createDatabaseIfNotExist=true</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">nosotros</property>
+    <property name="hibernate.connection.password">pass</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
     
