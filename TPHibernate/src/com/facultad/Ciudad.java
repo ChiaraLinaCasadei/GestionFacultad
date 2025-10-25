@@ -40,17 +40,4 @@ public class Ciudad {
     public String toString() {
         return "Ciudad{" + "id=" + id + ", nombre=" + nombre + '}';
     }
-    
-    
-    public void Create (SessionFactory sf){
-        Session session = sf.openSession();
-        Transaction trx = session.beginTransaction();
-        
-        Ciudad ciudad = new Ciudad (1, "Santa Fe");
-        
-        session.save(ciudad);
-        
-        trx.commit();            
-        session.close();
-    }
 }
