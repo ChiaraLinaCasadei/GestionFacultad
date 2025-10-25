@@ -1,6 +1,5 @@
 package tphibernate;
 
-import static Operations.Create.Ciudad;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -210,13 +209,13 @@ public class TPHibernate {
                     crearEntidad(scanner, entidad, sf);
                     break;
                 case 2:
-                    System.out.println("Actualizar " + entidad + "...");
+                    actualizarEntidad(scanner, entidad, sf);
                     break;
                 case 3:
-                    System.out.println("Borrar " + entidad + "...");
+                    eliminarEntidad(scanner, entidad, sf);
                     break;
                 case 4:
-                    System.out.println("Listar todas las " + entidad + "s...");
+                    listarEntidades(entidad, sf);
                     break;
                 case 0: {
                 }
@@ -231,7 +230,34 @@ public class TPHibernate {
     public static void crearEntidad (Scanner scanner, String entidad, SessionFactory sf){
         switch (entidad){
             case "Ciudad":
-                Ciudad(scanner, sf);
+                Operations.Create.Ciudad(scanner, sf);
+                break;
+            
+        }
+    }
+    
+    public static void listarEntidades (String entidad, SessionFactory sf){
+        switch (entidad){
+            case "Ciudad":
+                Operations.GetAll.Ciudades(sf);
+                break;
+            
+        }
+    }
+    
+    public static void eliminarEntidad (Scanner scanner, String entidad, SessionFactory sf){
+        switch (entidad){
+            case "Ciudad":
+                Operations.Delete.Ciudad(scanner, sf);
+                break;
+            
+        }
+    }
+    
+    public static void actualizarEntidad (Scanner scanner, String entidad, SessionFactory sf){
+        switch (entidad){
+            case "Ciudad":
+                Operations.Update.Ciudad(scanner, sf);
                 break;
             
         }
