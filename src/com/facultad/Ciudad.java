@@ -42,19 +42,6 @@ public class Ciudad {
     public String toString() {
         return "Ciudad{" + "id=" + id + ", nombre=" + nombre + '}';
     }
-    
-      public void crear() {
-        SessionFactory sf = new Configuration().configure().buildSessionFactory();
-        Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
-
-        session.save(this); // guarda la ciudad
-        tx.commit();
-
-        session.close();
-        sf.close(); // cerrar al final
-        System.out.println("Ciudad creada: " + this);
-    }
 }
 
 

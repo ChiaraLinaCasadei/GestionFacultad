@@ -1,6 +1,5 @@
 package tphibernate;
 
-import com.facultad.Ciudad;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -228,58 +227,44 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    public static void crearEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
+    public static void crearEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
             case "Ciudad":
                 Operations.Create.Ciudad(scanner, sf);
                 break;
-            
-        }
-    }
-    
-    public static void crearEntidad(Scanner scanner, String entidad) {
-    switch (entidad) {
-        case "Ciudad":
-          
-            System.out.print("Ingrese el nombre de la ciudad: ");
-            String nombre = scanner.nextLine();
+       
 
-            Ciudad ciudad = new Ciudad(nombre);
-            ciudad.crear();
+        case "Facultad":
+            Operations.Create.Facultad(scanner, sf);
             break;
     }
-}
-    
-    
-    
-    public static void listarEntidades (String entidad, SessionFactory sf){
-        switch (entidad){
+    }
+
+    public static void listarEntidades(String entidad, SessionFactory sf) {
+        switch (entidad) {
             case "Ciudad":
                 Operations.GetAll.Ciudades(sf);
                 break;
-            
+
         }
     }
-    
-    public static void eliminarEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
+
+    public static void eliminarEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
             case "Ciudad":
                 Operations.Delete.Ciudad(scanner, sf);
                 break;
-            
+
         }
     }
-    
-    public static void actualizarEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
+
+    public static void actualizarEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
             case "Ciudad":
                 Operations.Update.Ciudad(scanner, sf);
                 break;
-            
+
         }
     }
- 
 
 }
-
-

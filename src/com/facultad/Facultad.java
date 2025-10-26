@@ -3,6 +3,7 @@ package com.facultad;
 import javax.persistence.*;
 
 public class Facultad {
+     private Integer id;
     private String nombre;
     private Ciudad ciudad;
 
@@ -12,6 +13,15 @@ public class Facultad {
     public Facultad(String nombre, Ciudad ciudad) {
         this.nombre = nombre;
         this.ciudad = ciudad;
+   
+    }
+    
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -29,12 +39,10 @@ public class Facultad {
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
-
-    
-    
+  
     @Override
     public String toString() {
-        return "Facultad{" + "nombre=" + nombre + ", ciudad=" + ciudad + '}';
+        return "Facultad{" + "id=" + id  + "nombre=" + nombre + ", ciudad=" + ciudad + '}';
     }
     
     
