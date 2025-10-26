@@ -18,8 +18,8 @@ public class Profesor extends Persona {
         this.antiguedad = antiguedad;
     }
 
-    public Profesor(int antiguedad, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
-        super(apellido, nombre, dni, fechaNacimiento, ciudad);
+    public Profesor(int antiguedad, Integer id, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
+        super(id,apellido, nombre, dni, fechaNacimiento, ciudad);
         this.antiguedad = antiguedad;
     }
     

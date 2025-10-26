@@ -1,9 +1,10 @@
 package com.facultad;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.*;
 
-public class Alumno extends Persona {
+public class Alumno extends Persona implements Serializable {
    
     private int numeroLegajo;
     private int anioIngreso; 
@@ -24,13 +25,16 @@ public class Alumno extends Persona {
         this.anioIngreso = anioIngreso;
     }
 
+    public Alumno() {
+    }
+    
     public Alumno(int numeroLegajo, int anioIngreso) {
         this.numeroLegajo = numeroLegajo;
         this.anioIngreso = anioIngreso;
     }
 
-    public Alumno(int numeroLegajo, int anioIngreso, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
-        super(apellido, nombre, dni, fechaNacimiento, ciudad);
+    public Alumno(int numeroLegajo, int anioIngreso,Integer id, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
+        super(id,apellido, nombre, dni, fechaNacimiento, ciudad);
         this.numeroLegajo = numeroLegajo;
         this.anioIngreso = anioIngreso;
     }

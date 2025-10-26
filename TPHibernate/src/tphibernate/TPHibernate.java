@@ -3,11 +3,14 @@ package tphibernate;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class TPHibernate {
 
     public static void main(String[] args) {
-
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.ALL);
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
 
         Scanner scanner = new Scanner(System.in);
