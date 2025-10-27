@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="clasehibernate">
+  <class name="ClaseTipoDeDatos" >
+    <id name="id">
+      <generator class="identity"/>
+    </id>
+    <property name="charType"/>
+    <property name="stringType"/>
+    <property name="dateType"/>
+    <property name="byteType"/>
+    <property name="intType"/>
+    <property name="floatType"/>
+    <property name="doubleType"/>
+    <property name="booleanType"/>
+  </class>
+</hibernate-mapping>
