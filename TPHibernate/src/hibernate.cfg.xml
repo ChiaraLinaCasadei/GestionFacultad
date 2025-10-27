@@ -48,12 +48,10 @@ Contributor(s):
     <property name="hibernate.connection.password">pass</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
     <property name="hibernate.show_sql">true</property>
-    <mapping class="com.facultad.Ciudad" resource="Models/Ciudad.hbm.xml"/>
-    <mapping class="com.facultad.Persona" resource="Models/Persona.hbm.xml"/>
-    <!--
-    <mapping class="com.facultad.Carrera" resource="Models/Carrera.hbm.xml"/>
-    <mapping class="com.facultad.Facultad" resource="Models/Facultad.hbm.xml"/>
-    <mapping class="com.facultad.Materia" resource="Models/Materia.hbm.xml"/>
-    -->
+    <mapping package="Models" resource="Models/Ciudad.hbm.xml"/>
+    <mapping package="Models" resource="Models/Persona.hbm.xml"/>
+    <mapping package="Models" resource="Models/Carrera.hbm.xml"/>
+    <mapping package="Models" resource="Models/Facultad.hbm.xml"/>
+    <mapping package="Models" resource="Models/Materia.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

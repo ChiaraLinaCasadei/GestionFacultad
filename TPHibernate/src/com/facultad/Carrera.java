@@ -1,20 +1,31 @@
 package com.facultad;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 public class Carrera {
+    private Integer id;
     private String nombre;
     private Facultad facultad;
-    private ArrayList<Materia> materias;
+    private List<Materia> materias = new ArrayList<>();
     
     public Carrera() {
     }
     
-    public Carrera(String nombre, Facultad facultad, ArrayList<Materia> materias) {
+    public Carrera(Integer id,String nombre, Facultad facultad, List<Materia> materias) {
+        this.id = id;
         this.nombre = nombre;
         this.facultad = facultad;
         this.materias = materias;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -33,16 +44,14 @@ public class Carrera {
         this.facultad = facultad;
     }
 
-    public ArrayList<Materia> getMaterias() {
+    public List<Materia> getMaterias() {
         return materias;
     }
 
-    public void setMaterias(ArrayList<Materia> materias) {
+    public void setMaterias(List<Materia> materias) {
         this.materias = materias;
     }
     
-    
-
     @Override
     public String toString() {
         return "Carrera{" + "nombre=" + nombre + ", facultad=" + facultad + ", materias=" + materias + '}';

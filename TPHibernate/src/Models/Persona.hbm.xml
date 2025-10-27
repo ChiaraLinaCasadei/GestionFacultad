@@ -50,8 +50,12 @@ Contributor(s):
       <generator class="identity"/>
     </id>
     
-    <property name="apellido" type="string"/>
-    <property name="nombre" type="string"/>
+    <property name="apellido" type="string">
+    <column length="20" name="apellido"/>
+</property> 
+    <property name="nombre" type="string">
+    <column length="30" name="nombre"/>
+</property> 
     <property name="dni" type="string" unique="true" not-null="true"/>
     <property name="fechaNacimiento" column="fechaNacimiento" type="date"/>
     <many-to-one class="Ciudad" name="ciudad" column="id_ciudad" lazy="false"/>

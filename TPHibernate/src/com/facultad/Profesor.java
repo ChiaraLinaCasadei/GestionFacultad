@@ -1,7 +1,6 @@
 package com.facultad;
 
 import java.time.LocalDate;
-import javax.persistence.*;
 
 public class Profesor extends Persona {
     private int antiguedad;

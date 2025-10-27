@@ -43,11 +43,23 @@ Contributor(s):
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping package="com.facultad">
+<class name="Materia" table="materias">
 <id name="id" type="java.lang.Integer">
       <column name="id"/>
       <generator class="identity"/>
     </id>
-
-
+<property name="nombre" type="string">
+    <column length="50" name="nombre"/>
+</property>    
+<property name="nivel" type="string">
+    <column length="10" name="nivel"/>
+</property>
+<many-to-one column="profesor_id" name="Profesor" cascade="all" lazy="false"/>
+<list name="alumnos" cascade="all-delete-orphan" lazy="true">
+    <key column="id_materia"/>
+    <index column="orden"/>
+    <one-to-many class="Alumno"/>
+</list>          
+</class>
 </hibernate-mapping>
