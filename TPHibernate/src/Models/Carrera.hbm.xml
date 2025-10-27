@@ -43,14 +43,11 @@ Contributor(s):
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping default-lazy="false" package="com.facultad">
-  <class name="Ciudad" table="ciudades">
-    <id name="id" type="java.lang.Integer">
+<hibernate-mapping>
+<id name="id" type="java.lang.Integer">
       <column name="id"/>
       <generator class="identity"/>
     </id>
-    <property name="nombre">
-      <column length="50" name="nombre"/>
-    </property>
-  </class>
+
+
 </hibernate-mapping>

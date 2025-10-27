@@ -27,6 +27,5 @@ public class Profesor extends Persona {
     public String toString() {
         return "Profesor{" + "antiguedad=" + antiguedad + '}';
     }
-    
-    
+
 }
