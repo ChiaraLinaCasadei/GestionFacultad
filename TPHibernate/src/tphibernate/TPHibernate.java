@@ -3,6 +3,7 @@ package tphibernate;
 import java.time.LocalDate;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
+import org.hibernate.AnnotationException;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Query;
 import org.hibernate.Session;

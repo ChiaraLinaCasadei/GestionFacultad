@@ -1,8 +1,13 @@
 package com.facultad;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Profesor extends Persona {
+
+    public Profesor() {
+        super();
+    }
+
     private int antiguedad;
 
     public int getAntiguedad() {
@@ -17,14 +22,19 @@ public class Profesor extends Persona {
         this.antiguedad = antiguedad;
     }
 
-    public Profesor(int antiguedad, Integer id, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
-        super(id,apellido, nombre, dni, fechaNacimiento, ciudad);
+    public Profesor(int antiguedad, Integer id, String apellido, String nombre, String dni, Date fechaNacimiento, Ciudad ciudad) {
+        super(id, apellido, nombre, dni, fechaNacimiento, ciudad);
         this.antiguedad = antiguedad;
     }
-    
+
     @Override
     public String toString() {
-        return "Profesor{" + "antiguedad=" + antiguedad + '}';
+        return "Profesor{"
+                + "id=" + getId()
+                + ", nombre='" + getNombre() + '\''
+                + ", apellido='" + getApellido() + '\''
+                + ", antiguedad=" + antiguedad
+                + '}';
     }
 
 }

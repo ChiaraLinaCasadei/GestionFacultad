@@ -1,13 +1,17 @@
 package com.facultad;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.*;
 
 public class Alumno extends Persona implements Serializable {
-   
+
     private int numeroLegajo;
-    private int anioIngreso; 
+    private int anioIngreso;
+
+    public Alumno() {
+        super();
+    }
 
     public int getNumeroLegajo() {
         return numeroLegajo;
@@ -25,23 +29,26 @@ public class Alumno extends Persona implements Serializable {
         this.anioIngreso = anioIngreso;
     }
 
-    public Alumno() {
-    }
-    
     public Alumno(int numeroLegajo, int anioIngreso) {
         this.numeroLegajo = numeroLegajo;
         this.anioIngreso = anioIngreso;
     }
 
-    public Alumno(int numeroLegajo, int anioIngreso,Integer id, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
-        super(id,apellido, nombre, dni, fechaNacimiento, ciudad);
+    public Alumno(int numeroLegajo, int anioIngreso, Integer id, String apellido, String nombre, String dni, Date fechaNacimiento, Ciudad ciudad) {
+        super(id, apellido, nombre, dni, fechaNacimiento, ciudad);
         this.numeroLegajo = numeroLegajo;
         this.anioIngreso = anioIngreso;
     }
-    
+
     @Override
     public String toString() {
-        return "Alumno{" + "numeroLegajo=" + numeroLegajo + ", anioIngreso=" + anioIngreso + '}';
+        return "Alumno{"
+                + "id=" + getId()
+                + ", nombre='" + getNombre() + '\''
+                + ", apellido='" + getApellido() + '\''
+                + ", numeroLegajo=" + numeroLegajo
+                + ", anioIngreso=" + anioIngreso
+                + '}';
     }
-    
+
 }

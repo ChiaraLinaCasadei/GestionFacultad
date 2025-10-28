@@ -1,14 +1,15 @@
 package com.facultad;
 
-import java.time.LocalDate;
+import java.util.Date;
 import javax.persistence.*;
 
 public class Persona {
+
     private Integer id;
     private String apellido;
     private String nombre;
     private String dni;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
     private Ciudad ciudad;
 
     public Integer getId() {
@@ -18,7 +19,7 @@ public class Persona {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getApellido() {
         return apellido;
     }
@@ -43,11 +44,11 @@ public class Persona {
         this.dni = dni;
     }
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -58,11 +59,11 @@ public class Persona {
     public void setCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
-    
+
     public Persona() {
     }
 
-    public Persona(Integer id, String apellido, String nombre, String dni, LocalDate fechaNacimiento, Ciudad ciudad) {
+    public Persona(Integer id, String apellido, String nombre, String dni, Date fechaNacimiento, Ciudad ciudad) {
         this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
@@ -70,7 +71,7 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
         this.ciudad = ciudad;
     }
-   
+
     @Override
     public String toString() {
         return "Persona{" + "apellido=" + apellido + ", nombre=" + nombre + ", dni=" + dni + ", fechaNacimiento=" + fechaNacimiento + ", ciudad=" + ciudad + '}';
