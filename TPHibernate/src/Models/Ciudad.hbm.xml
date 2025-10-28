@@ -44,7 +44,7 @@ Contributor(s):
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping default-lazy="false" package="com.facultad">
-  <class name="Ciudad" table="ciudad">
+  <class name="Ciudad" table="ciudades">
     <id name="id" type="java.lang.Integer">
       <column name="id"/>
       <generator class="identity"/>

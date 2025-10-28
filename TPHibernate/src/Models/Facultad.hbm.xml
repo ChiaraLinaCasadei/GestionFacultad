@@ -44,7 +44,7 @@ Contributor(s):
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.facultad">
-<class name="Facultad" table="facultad">
+<class name="Facultad" table="facultades">
 <id name="id" type="java.lang.Integer">
       <column name="id"/>
       <generator class="identity"/>

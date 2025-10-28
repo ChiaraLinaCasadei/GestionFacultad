@@ -57,7 +57,7 @@ Contributor(s):
     <column length="30" name="nombre"/>
 </property> 
     <property name="dni" type="string" unique="true" not-null="true"/>
-    <property name="fechaNacimiento" column="fechaNacimiento" type="date"/>
+    <property name="fechaNacimiento" column="fechaNacimiento" type="java.time.LocalDate"/>
     <many-to-one class="Ciudad" name="ciudad" column="id_ciudad" lazy="false"/>
     
     <joined-subclass name="Alumno" table="alumnos">

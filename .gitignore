@@ -26,3 +26,4 @@ replay_pid*
 /TPHibernate/nbproject/
 .vs
 TPHibernate/build/
+/TPHibernate/dist/
