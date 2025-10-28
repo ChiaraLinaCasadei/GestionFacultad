@@ -1,11 +1,8 @@
 package tphibernate;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
-import org.hibernate.AnnotationException;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import com.facultad.Ciudad;
@@ -14,6 +11,8 @@ import com.facultad.Materia;
 import com.facultad.Alumno;
 import com.facultad.Carrera;
 import com.facultad.Facultad;
+import java.util.Date;
+import javax.security.auth.login.Configuration;
 
 public class TPHibernate {
 
@@ -21,6 +20,7 @@ public class TPHibernate {
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.ALL);
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
 
+        seedDatabase(sf);
         Scanner scanner = new Scanner(System.in);
 
         int opcion = -1;
@@ -96,16 +96,16 @@ public class TPHibernate {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Crear alumno...");
+                    Operations.Create.Alumno(scanner, sf);
                     break;
                 case 2:
-                    System.out.println("Actualizar alumno...");
+                    Operations.Update.Alumno(scanner, sf);
                     break;
                 case 3:
-                    System.out.println("Borrar alumno...");
+                    Operations.Delete.Alumno(scanner, sf);
                     break;
                 case 4:
-                    System.out.println("Listar todos los alumnos...");
+                    Operations.GetAll.Alumnos(sf);
                     break;
                 case 5:
                     Operations.GetAll.AlumnosOrdenadosPorApellido(sf);
@@ -136,16 +136,16 @@ public class TPHibernate {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Crear profesor...");
+                    Operations.Create.Profesor(scanner, sf);
                     break;
                 case 2:
-                    System.out.println("Actualizar profesor...");
+                    Operations.Update.Profesor(scanner, sf);
                     break;
                 case 3:
-                    System.out.println("Borrar profesor...");
+                    Operations.Delete.Profesor(scanner, sf);
                     break;
                 case 4:
-                    System.out.println("Listar todos los profesores...");
+                    Operations.GetAll.Profesores(sf);
                     break;
                 case 5:
                     Operations.GetAll.ProfesoresOrdenadosPorAntiguedad(sf);
@@ -244,7 +244,15 @@ public class TPHibernate {
             case "Ciudad":
                 Operations.Create.Ciudad(scanner, sf);
                 break;
-
+            case "Facultad":
+                Operations.Create.Facultad(scanner, sf);
+                break;
+            case "Carrera":
+                Operations.Create.Carrera(scanner, sf);
+                break;
+            default:
+                System.out.println("Entidad no reconocida");
+                break;
         }
     }
 
@@ -253,7 +261,15 @@ public class TPHibernate {
             case "Ciudad":
                 Operations.GetAll.Ciudades(sf);
                 break;
-
+            case "Facultad":
+                Operations.GetAll.Facultades(sf);
+                break;
+            case "Carrera":
+                Operations.GetAll.Carreras(sf);
+                break;
+            default:
+                System.out.println("Entidad no reconocida");
+                break;
         }
     }
 
@@ -262,7 +278,15 @@ public class TPHibernate {
             case "Ciudad":
                 Operations.Delete.Ciudad(scanner, sf);
                 break;
-
+            case "Facultad":
+                Operations.Delete.Facultad(scanner, sf);
+                break;
+            case "Carrera":
+                Operations.Delete.Carrera(scanner, sf);
+                break;
+            default:
+                System.out.println("Entidad no reconocida");
+                break;
         }
     }
 
@@ -271,7 +295,121 @@ public class TPHibernate {
             case "Ciudad":
                 Operations.Update.Ciudad(scanner, sf);
                 break;
+            case "Facultad":
+                Operations.Update.Facultad(scanner, sf);
+                break;
+            case "Carrera":
+                Operations.Update.Carrera(scanner, sf);
+                break;
+            default:
+                System.out.println("Entidad no reconocida");
+                break;
+        }
+    }
 
+    //----
+
+    public static void seedDatabase(SessionFactory sf) {
+        Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+            // Ciudades
+            Ciudad rosario = new Ciudad("Rosario");
+            Ciudad cordoba = new Ciudad("Córdoba");
+            session.save(rosario);
+            session.save(cordoba);
+
+            // Facultades
+            Facultad fceia = new Facultad(null, "FCEIA", rosario);
+            Facultad famaf = new Facultad(null, "FaMAF", cordoba);
+            session.save(fceia);
+            session.save(famaf);
+
+            // Profesores
+            Profesor prof1 = new Profesor(
+                    10,
+                    null,
+                    "García",
+                    "Ana",
+                    "12345678",
+                    new Date(1980, 1, 15),
+                    rosario
+            );
+            Profesor prof2 = new Profesor(
+                    5,
+                    null,
+                    "Pérez",
+                    "Juan",
+                    "23456789",
+                    new Date(1985, 5, 20),
+                    cordoba
+            );
+            session.save(prof1);
+            session.save(prof2);
+
+            // Alumnos
+            Alumno alu1 = new Alumno(
+                    1001,
+                    2022,
+                    null,
+                    "López",
+                    "María",
+                    "30111222",
+                    new Date(2000, 3, 10),
+                    rosario
+            );
+            Alumno alu2 = new Alumno(
+                    1002,
+                    2023,
+                    null,
+                    "Santos",
+                    "Pedro",
+                    "30999888",
+                    new Date(2001, 7, 22),
+                    cordoba
+            );
+            Alumno alu3 = new Alumno(
+                    1003,
+                    2021,
+                    null,
+                    "Álvarez",
+                    "Lucía",
+                    "29888777",
+                    new Date(1999, 12, 5),
+                    rosario
+            );
+            // Persistir alumnos por cascada desde Materia
+
+            // Materias y asociación con alumnos y profesores
+            Materia mat1 = new Materia();
+            mat1.setNombre("Matemática I");
+            mat1.setNivel("1");
+            mat1.setProfesor(prof1);
+            mat1.getAlumnos().add(alu1);
+            mat1.getAlumnos().add(alu2);
+
+            Materia mat2 = new Materia();
+            mat2.setNombre("Programación");
+            mat2.setNivel("2");
+            mat2.setProfesor(prof2);
+            mat2.getAlumnos().add(alu2);
+            mat2.getAlumnos().add(alu3);
+
+            // Carrera que agrupa materias (cascade a materias y a su vez a alumnos)
+            Carrera sis = new Carrera(null, "Ingeniería en Sistemas", fceia, new java.util.ArrayList<>());
+            sis.getMaterias().add(mat1);
+            sis.getMaterias().add(mat2);
+
+            // Persistimos la Carrera para disparar las cascadas
+            session.save(sis);
+
+            tx.commit();
+            System.out.println("Seed completado (todas las entidades principales).");
+        } catch (Exception e) {
+            tx.rollback();
+            throw e;
+        } finally {
+            session.close();
         }
     }
 }
