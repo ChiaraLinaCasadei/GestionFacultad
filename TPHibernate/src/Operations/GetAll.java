@@ -22,6 +22,18 @@ public class GetAll {
         }
     }
 
+        public static void Materias(SessionFactory sf) {
+        Session session = sf.openSession();
+        try {
+            List<Materia> materias = session.createQuery("from Materia").list();
+            for (Materia m : materias) {
+                System.out.println(m);
+            }
+        } finally {
+            session.close();
+        }
+    }
+
     public static void AlumnosOrdenadosPorApellido(SessionFactory sf) {
         Session session = sf.openSession();
         try {

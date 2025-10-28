@@ -175,16 +175,16 @@ public class TPHibernate {
 
             switch (opcion) {
                 case 1:
-                    System.out.println("Crear materia...");
+                    Operations.Create.Materia(scanner, sf);
                     break;
                 case 2:
-                    System.out.println("Actualizar materia...");
+                    Operations.Update.Materia(scanner, sf);
                     break;
                 case 3:
-                    System.out.println("Borrar materia...");
+                    Operations.Delete.Materia(scanner, sf);
                     break;
                 case 4:
-                    System.out.println("Listar todas las materias...");
+                    Operations.GetAll.Materias(sf);
                     break;
                 case 5: {
                     System.out.print("Ingrese nivel: ");
