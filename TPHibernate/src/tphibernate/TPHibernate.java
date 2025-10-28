@@ -1,11 +1,18 @@
 package tphibernate;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import com.facultad.Ciudad;
+import com.facultad.Profesor;
+import com.facultad.Materia;
+import com.facultad.Alumno;
+import com.facultad.Carrera;
+import com.facultad.Facultad;
 
 public class TPHibernate {
 
@@ -32,13 +39,13 @@ public class TPHibernate {
 
             switch (opcion) {
                 case 1:
-                    menuAlumnos(scanner);
+                    menuAlumnos(scanner, sf);
                     break;
                 case 2:
-                    menuProfesores(scanner);
+                    menuProfesores(scanner, sf);
                     break;
                 case 3:
-                    menuMaterias(scanner);
+                    menuMaterias(scanner, sf);
                     break;
                 case 4:
                     menuGenerico(scanner, "Ciudad", sf);
@@ -72,7 +79,7 @@ public class TPHibernate {
         }
     }
 
-    private static void menuAlumnos(Scanner scanner) {
+    private static void menuAlumnos(Scanner scanner, SessionFactory sf) {
         int opcion;
         do {
             System.out.println("\n--- MENÚ ALUMNOS ---");
@@ -100,7 +107,7 @@ public class TPHibernate {
                     System.out.println("Listar todos los alumnos...");
                     break;
                 case 5:
-                    System.out.println("Listar alumnos por apellido...");
+                    Operations.GetAll.AlumnosOrdenadosPorApellido(sf);
                     break;
                 case 0: {
                 }
@@ -112,7 +119,7 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    private static void menuProfesores(Scanner scanner) {
+    private static void menuProfesores(Scanner scanner, SessionFactory sf) {
         int opcion;
         do {
             System.out.println("\n--- MENÚ PROFESORES ---");
@@ -140,7 +147,7 @@ public class TPHibernate {
                     System.out.println("Listar todos los profesores...");
                     break;
                 case 5:
-                    System.out.println("Listar profesores por antigüedad...");
+                    Operations.GetAll.ProfesoresOrdenadosPorAntiguedad(sf);
                     break;
                 case 0: {
                 }
@@ -152,7 +159,7 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    private static void menuMaterias(Scanner scanner) {
+    private static void menuMaterias(Scanner scanner, SessionFactory sf) {
         int opcion;
         do {
             System.out.println("\n--- MENÚ MATERIAS ---");
@@ -181,8 +188,9 @@ public class TPHibernate {
                     break;
                 case 5: {
                     System.out.print("Ingrese nivel: ");
-                    int nivel = scanner.nextInt();
-                    System.out.println("Listar materias del nivel " + nivel + "...");
+                    String nivel = scanner.nextLine();
+                    Operations.GetAll.MateriasPorNivel(sf, nivel);
+                    break;
                 }
                 case 0: {
                 }
@@ -230,40 +238,39 @@ public class TPHibernate {
         } while (opcion != 0);
     }
 
-    public static void crearEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
+    public static void crearEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
             case "Ciudad":
                 Operations.Create.Ciudad(scanner, sf);
                 break;
-            
-        }
-    }
-    
-    public static void listarEntidades (String entidad, SessionFactory sf){
-        switch (entidad){
-            case "Ciudad":
-                Operations.GetAll.Ciudades(sf);
-                break;
-            
-        }
-    }
-    
-    public static void eliminarEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
-            case "Ciudad":
-                Operations.Delete.Ciudad(scanner, sf);
-                break;
-            
-        }
-    }
-    
-    public static void actualizarEntidad (Scanner scanner, String entidad, SessionFactory sf){
-        switch (entidad){
-            case "Ciudad":
-                Operations.Update.Ciudad(scanner, sf);
-                break;
-            
+
         }
     }
 
+    public static void listarEntidades(String entidad, SessionFactory sf) {
+        switch (entidad) {
+            case "Ciudad":
+                Operations.GetAll.Ciudades(sf);
+                break;
+
+        }
+    }
+
+    public static void eliminarEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
+            case "Ciudad":
+                Operations.Delete.Ciudad(scanner, sf);
+                break;
+
+        }
+    }
+
+    public static void actualizarEntidad(Scanner scanner, String entidad, SessionFactory sf) {
+        switch (entidad) {
+            case "Ciudad":
+                Operations.Update.Ciudad(scanner, sf);
+                break;
+
+        }
+    }
 }
