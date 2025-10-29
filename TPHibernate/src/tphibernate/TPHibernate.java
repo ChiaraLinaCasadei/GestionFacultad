@@ -12,7 +12,7 @@ import com.facultad.Alumno;
 import com.facultad.Carrera;
 import com.facultad.Facultad;
 import java.util.Date;
-import javax.security.auth.login.Configuration;
+
 
 public class TPHibernate {
 

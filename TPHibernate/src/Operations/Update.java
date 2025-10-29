@@ -1,9 +1,13 @@
 
 package Operations;
 
+import com.facultad.Alumno;
+import com.facultad.Carrera;
 import com.facultad.Ciudad;
+import com.facultad.Facultad;
 import com.facultad.Materia;
 import com.facultad.Profesor;
+import java.util.List;
 import java.util.Scanner;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
