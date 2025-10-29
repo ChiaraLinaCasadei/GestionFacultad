@@ -17,7 +17,7 @@ import java.util.Date;
 public class TPHibernate {
 
     public static void main(String[] args) {
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.ALL);
+        //java.util.logging.Logger.getLogger("org.hibernate").setLevel(java.util.logging.Level.ALL);
         SessionFactory sf = new Configuration().configure().buildSessionFactory();
 
         seedDatabase(sf);

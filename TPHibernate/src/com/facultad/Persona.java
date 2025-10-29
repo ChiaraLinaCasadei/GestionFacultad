@@ -1,7 +1,6 @@
 package com.facultad;
 
 import java.util.Date;
-import javax.persistence.*;
 
 public class Persona {
 
@@ -11,6 +10,18 @@ public class Persona {
     private String dni;
     private Date fechaNacimiento;
     private Ciudad ciudad;
+
+    public Persona() {
+    }
+
+    public Persona(Integer id, String apellido, String nombre, String dni, Date fechaNacimiento, Ciudad ciudad) {
+        this.id = id;
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
+        this.ciudad = ciudad;
+    }
 
     public Integer getId() {
         return id;
@@ -57,18 +68,6 @@ public class Persona {
     }
 
     public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public Persona() {
-    }
-
-    public Persona(Integer id, String apellido, String nombre, String dni, Date fechaNacimiento, Ciudad ciudad) {
-        this.id = id;
-        this.apellido = apellido;
-        this.nombre = nombre;
-        this.dni = dni;
-        this.fechaNacimiento = fechaNacimiento;
         this.ciudad = ciudad;
     }
 

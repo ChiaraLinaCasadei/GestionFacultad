@@ -1,16 +1,19 @@
-
 package com.facultad;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
 
 public class Ciudad {
+
     private Integer id;
     private String nombre;
 
     public Ciudad() {
     }
-    
+
+    public Ciudad(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -18,7 +21,7 @@ public class Ciudad {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public Ciudad(String nombre) {
         this.nombre = nombre;
     }
@@ -28,11 +31,6 @@ public class Ciudad {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Ciudad(Integer id, String nombre) {
-        this.id = id;
         this.nombre = nombre;
     }
 

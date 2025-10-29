@@ -3,21 +3,12 @@ package com.facultad;
 import java.util.Date;
 
 public class Profesor extends Persona {
+    private int antiguedad;
 
     public Profesor() {
         super();
     }
-
-    private int antiguedad;
-
-    public int getAntiguedad() {
-        return antiguedad;
-    }
-
-    public void setAntiguedad(int antiguedad) {
-        this.antiguedad = antiguedad;
-    }
-
+    
     public Profesor(int antiguedad) {
         this.antiguedad = antiguedad;
     }
@@ -27,6 +18,14 @@ public class Profesor extends Persona {
         this.antiguedad = antiguedad;
     }
 
+    public int getAntiguedad() {
+        return antiguedad;
+    }
+
+    public void setAntiguedad(int antiguedad) {
+        this.antiguedad = antiguedad;
+    }
+    
     @Override
     public String toString() {
         return "Profesor{"

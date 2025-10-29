@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Materia {
+
     private Integer id;
     private String nombre;
     private String nivel;
@@ -11,6 +12,14 @@ public class Materia {
     private List<Alumno> alumnos = new ArrayList<Alumno>();
 
     public Materia() {
+    }
+
+    public Materia(Integer id, String nombre, String nivel, Profesor profesor, List<Alumno> alumnos) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nivel = nivel;
+        this.profesor = profesor;
+        this.alumnos = alumnos;
     }
 
     public String getNombre() {
@@ -52,19 +61,17 @@ public class Materia {
     public void setId(Integer id) {
         this.id = id;
     }
-    
-    public Materia(Integer id,String nombre, String nivel, Profesor profesor, List<Alumno> alumnos) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nivel = nivel;
-        this.profesor = profesor;
-        this.alumnos = alumnos;
-    }
 
     @Override
     public String toString() {
-        return "Materia{" + "nombre=" + nombre + ", nivel=" + nivel + ", profesor=" + profesor + ", alumnos=" + alumnos + '}';
+        String alumnosStr = "";
+        for (int i = 0; i < alumnos.size(); i++){
+            alumnosStr+= " \t \t \t" + alumnos.get(i).toString() + "\n";
+        }
+        return "Materia{" + "nombre=" + nombre + ", nivel=" + nivel + ", \n "
+                + "\t \t profesor=" + profesor + ",\n"
+                + "\t \t alumnos= \n"
+                + alumnosStr;
     }
-    
-    
+
 }

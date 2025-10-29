@@ -55,7 +55,7 @@ Contributor(s):
 <property name="nivel" type="string">
     <column length="10" name="nivel"/>
 </property>
-<many-to-one column="profesor_id" name="profesor" cascade="none" lazy="proxy"/>
+<many-to-one column="profesor_id" name="profesor" cascade="all" lazy="proxy"/>
 <list name="alumnos" cascade="all-delete-orphan" lazy="true">
     <key column="id_materia"/>
     <index column="orden"/>

@@ -2,18 +2,18 @@ package com.facultad;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.*;
 
 public class Carrera {
+
     private Integer id;
     private String nombre;
     private Facultad facultad;
     private List<Materia> materias = new ArrayList<>();
-    
+
     public Carrera() {
     }
-    
-    public Carrera(Integer id,String nombre, Facultad facultad, List<Materia> materias) {
+
+    public Carrera(Integer id, String nombre, Facultad facultad, List<Materia> materias) {
         this.id = id;
         this.nombre = nombre;
         this.facultad = facultad;
@@ -51,11 +51,10 @@ public class Carrera {
     public void setMaterias(List<Materia> materias) {
         this.materias = materias;
     }
-    
+
     @Override
     public String toString() {
         return "Carrera{" + "nombre=" + nombre + ", facultad=" + facultad + ", materias=" + materias + '}';
     }
-    
-    
+
 }

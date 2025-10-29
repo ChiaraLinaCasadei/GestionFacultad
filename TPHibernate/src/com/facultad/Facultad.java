@@ -1,6 +1,5 @@
 package com.facultad;
 
-import javax.persistence.*;
 
 public class Facultad {
     private Integer id;
@@ -16,8 +15,9 @@ public class Facultad {
         this.ciudad = ciudad;
     }
 
-    public Facultad(String nombreFacultad, Ciudad ciudadSeleccionada) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Facultad(String nombre, Ciudad ciudad) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
     }
 
     public Integer getId() {
