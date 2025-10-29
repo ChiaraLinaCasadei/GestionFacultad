@@ -58,7 +58,7 @@ Contributor(s):
 </property> 
     <property name="dni" type="string" unique="true" not-null="true"/>
     <property name="fechaNacimiento" column="fechaNacimiento" type="date"/>
-    <many-to-one class="Ciudad" name="ciudad" column="id_ciudad" lazy="false"/>
+    <many-to-one class="Ciudad" name="ciudad" column="id_ciudad" cascade="none" lazy="proxy"/>
     
     <joined-subclass name="Alumno" table="alumnos">
         <key column="id_persona"/>

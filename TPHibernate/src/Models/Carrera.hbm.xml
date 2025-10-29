@@ -51,7 +51,7 @@ Contributor(s):
     </id>
 <property name="nombre" type="string"/>
 <!-- muchos a uno -->
-<many-to-one class="Facultad" name="facultad" column="id_facultad" lazy="false" cascade="save-update"/>
+<many-to-one class="Facultad" name="facultad" column="id_facultad" lazy="proxy" cascade="save-update"/>
 <!-- uno a muchos -->
     <list name="materias" cascade="all-delete-orphan" lazy="true"> 
         <key column="id_carrera" /> 

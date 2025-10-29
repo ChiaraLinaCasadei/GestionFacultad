@@ -50,6 +50,6 @@ Contributor(s):
       <generator class="identity"/>
     </id>
 <property name="nombre" type="string"/>
-<many-to-one class="Ciudad" name="ciudad" column="ciudad_id" lazy="false" cascade="save-update"/>
+<many-to-one class="Ciudad" name="ciudad" column="ciudad_id" lazy="proxy" cascade="save-update"/>
 </class>
 </hibernate-mapping>
